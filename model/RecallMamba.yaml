@@ -1,0 +1,235 @@
+### model params
+Model:
+  in_channels: 3
+  out_channels: 3
+  model_channels: 128
+  attention_resolutions: [2, ]
+  num_res_blocks: 2
+  dropout: 0.1
+  channel_mult: [1, 2, 2, 2]
+  conv_resample: True
+  num_heads: 4
+
+PEMS04:
+  num_nodes: 307
+  in_steps: 12
+  out_steps: 12
+
+  train_size: 0.6
+  val_size: 0.2
+
+  time_of_day: True
+  day_of_week: True
+
+  lr: 0.001
+  weight_decay: 0.0005
+  milestones: [15, 30, 50]
+  lr_decay_rate: 0.1
+  batch_size: 16
+  max_epochs: 300
+  early_stop: 20
+  use_cl: False
+  cl_step_size: 2500
+### trainer params
+  ### trainer params
+  Trainer:
+    # sample time steps
+    T: 1000
+    beta: [ 0.0001, 0.02 ]
+  Model:
+    in_channels: 3
+    out_channels: 3
+    model_channels: 128
+    attention_resolutions: [ 2, ]
+    num_res_blocks: 2
+    dropout: 0.1
+    channel_mult: [ 1 ]
+    conv_resample: True
+    num_heads: 4
+
+  model_args:
+    num_nodes: 307
+    in_steps: 12
+    out_steps: 12
+    steps_per_day: 288
+    input_dim: 3
+    output_dim: 1
+    input_embedding_dim: 24
+    tod_embedding_dim: 24
+    dow_embedding_dim: 24
+    spatial_embedding_dim: 0
+    adaptive_embedding_dim: 80
+    feed_forward_dim: 256
+    num_heads: 4
+    t_num_layers: 1
+    s_num_layers: 1
+    dropout: 0.1
+    hsm_num_layers: 1
+    hsm_state_dim: 64
+    hsm_d_inner_ratio: 2.0
+    memory_window_size: 8
+    max_memory_items_for_recall: 4
+    hsm_use_1d_conv: true
+
+PEMS07:
+  num_nodes: 883
+  in_steps: 12
+  out_steps: 12
+
+  train_size: 0.6
+  val_size: 0.2
+
+  time_of_day: True
+  day_of_week: True
+
+  lr: 0.001
+  weight_decay: 0.001
+  milestones: [15, 35, 50]
+  lr_decay_rate: 0.1
+  batch_size: 16
+  max_epochs: 300
+  early_stop: 20
+  use_cl: False
+  cl_step_size: 2500
+
+### trainer params
+  Trainer:
+    # sample time steps
+    T: 1000
+    beta: [ 0.0001, 0.02 ]
+
+  model_args:
+    num_nodes: 883
+    in_steps: 12
+    out_steps: 12
+    steps_per_day: 288
+    input_dim: 3
+    output_dim: 1
+    input_embedding_dim: 24
+    tod_embedding_dim: 24
+    dow_embedding_dim: 24
+    spatial_embedding_dim: 0
+    adaptive_embedding_dim: 80
+    feed_forward_dim: 256
+    num_heads: 4
+    t_num_layers: 1
+    s_num_layers: 1
+    dropout: 0.1
+    hsm_num_layers: 1
+    hsm_state_dim: 64
+    hsm_d_inner_ratio: 2.0
+    memory_window_size: 8
+    max_memory_items_for_recall: 4
+    hsm_use_1d_conv: false
+
+PEMS08:
+  num_nodes: 170
+  in_steps: 12
+  out_steps: 12
+
+  train_size: 0.6
+  val_size: 0.2
+
+  time_of_day: True
+  day_of_week: True
+
+  lr: 0.001
+  weight_decay: 0.0015
+  milestones: [25, 45, 65]
+  lr_decay_rate: 0.1
+  batch_size: 16
+  max_epochs: 150
+  early_stop: 15
+  use_cl: False
+  cl_step_size: 2500
+
+  ### trainer params
+  Trainer:
+    # sample time steps
+    T: 1000
+    beta: [ 0.0001, 0.02 ]
+  Model:
+    in_channels: 3
+    out_channels: 3
+    model_channels: 128
+    attention_resolutions: [ 2, ]
+    num_res_blocks: 2
+    dropout: 0.1
+    channel_mult: [ 1]
+    conv_resample: True
+    num_heads: 4
+
+  model_args:
+    num_nodes: 170
+    in_steps: 12
+    out_steps: 12
+    steps_per_day: 288
+    input_dim: 3
+    output_dim: 1
+    input_embedding_dim: 24
+    tod_embedding_dim: 24
+    dow_embedding_dim: 24
+    spatial_embedding_dim: 0
+    adaptive_embedding_dim: 80
+    feed_forward_dim: 256
+    num_heads: 4
+    t_num_layers: 1
+    s_num_layers: 1
+    hsm_num_layers: 1
+    hsm_state_dim: 72
+    hsm_d_inner_ratio: 2.0
+    memory_window_size: 8
+    max_memory_items_for_recall: 4
+    hsm_use_1d_conv: true
+
+# This is abandoned, needs further tuning if you want to run
+PEMS03:
+  num_nodes: 358
+  in_steps: 12
+  out_steps: 12
+
+  train_size: 0.6
+  val_size: 0.2
+
+  time_of_day: True
+  day_of_week: True
+  
+  lr: 0.001
+  weight_decay: 0.0005
+  milestones: [15, 30, 40]
+  lr_decay_rate: 0.1
+  batch_size: 16
+  max_epochs: 300
+  early_stop: 20
+  use_cl: False
+  cl_step_size: 2500
+
+  ### trainer params
+  Trainer:
+    # sample time steps
+    T: 1000
+    beta: [ 0.0001, 0.999 ]
+
+  model_args:
+    num_nodes: 358
+    in_steps: 12
+    out_steps: 12
+    steps_per_day: 288
+    input_dim: 3
+    output_dim: 1
+    input_embedding_dim: 24
+    tod_embedding_dim: 24
+    dow_embedding_dim: 24
+    spatial_embedding_dim: 0
+    adaptive_embedding_dim: 80
+    feed_forward_dim: 256
+    num_heads: 4
+    t_num_layers: 1
+    s_num_layers: 1
+    dropout: 0.1
+    hsm_num_layers: 1
+    hsm_state_dim: 64
+    hsm_d_inner_ratio: 2.0
+    memory_window_size: 8
+    max_memory_items_for_recall: 4
+    hsm_use_1d_conv: false
